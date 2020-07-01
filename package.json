@@ -1,0 +1,9 @@
+{
+	"scripts": {
+		"react-comp": "cd packages/components && yarn start"
+	},
+	"devDependencies": {
+		"lerna": "^2.10.1"
+	},
+	"dependencies": {}
+}
