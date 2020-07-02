@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Player from './Player';
 import ReactDom from "react-dom";
 
@@ -42,7 +42,12 @@ const moveDown = (index) => {
 }
 
 export const PlayerList = () => {
+    const [counter, incrementCounter] = useState(0);
 
+    const handleIncrement = (increment) => {
+        incrementCounter(counter + increment)
+    };
+    
     return (
         <table className="table table-sm table-striped">
             <thead>
@@ -61,7 +66,9 @@ export const PlayerList = () => {
                                 reverseName={ updateName }
                                 size={list.length}
                                 moveUp={ moveUp }
-                                moveDown={ moveDown } />
+                                moveDown={ moveDown }
+                                couter={ counter }
+                                incrementCallback={ handleIncrement } />
                         </tr>
                     ))
                 }
