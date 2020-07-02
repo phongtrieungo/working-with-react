@@ -28,7 +28,7 @@ const moveUp = (index) => {
 }
 
 const moveDown = (index) => {
-    // if (index === 0) { return; }
+    if (index === list.length - 1) { return; }
 
     for (let i = 0; i < list.length; i++) {
         const element = list[i];

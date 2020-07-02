@@ -1,4 +1,5 @@
 import React from 'react'
+import { CallbackButton } from '../button/callback-button';
 
 const getClass = (index) => index === 0 ? `btn btn-success btn-sm disabled` : `btn btn-success btn-sm`; 
 
@@ -6,20 +7,12 @@ export const Player = (props) => (
     <React.Fragment>
         <td>{ props.index }</td>
         <td>{ props.name }</td>
-        <td>{ props.name.length } letters</td>
+        <td>{ props.name && props.name.length } letters</td>
         <td>
-            <button className="btn btn-warning btn-sm mr-2" 
-                    onClick={ () => props.reverseName(props.index)}>
-                Reverse
-            </button>
-            <button className={ getClass(props.index )}
-                    onClick={ () => props.moveUp(props.index)}>
-                Move Up
-            </button>
-            <button className="btn btn-success btn-sm ml-2"
-                    onClick={ () => props.moveDown(props.index)}>
-                Move Down
-            </button>
+            <CallbackButton theme="primary" text="Reverse" callback={ () => props.reverseName(props.index) }/>
+            <CallbackButton theme="info" text="Move Up" callback={ () => props.moveUp(props.index) }/>
+            <CallbackButton theme="warning" text="Move Down" callback={ () => props.moveDown(props.index) }/>
+            <CallbackButton callback={ () => props.moveDown(props.index) }/>
         </td>
     </React.Fragment>
 );
